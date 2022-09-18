@@ -4,6 +4,7 @@
 node_modules
 backend
 cinnovabackend
+foodmartbackend
 package-lock.json
 /.pnp
 .pnp.js

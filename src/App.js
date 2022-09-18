@@ -12,6 +12,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import CreateStudent from './components/create-student.component'
 import EditStudent from './components/edit-student.component'
 import StudentList from './components/student-list.component'
+import RegisterUser from './components/register-user.component'
+import LoginUser from './components/login-user.component'
 
 function App() {
 
@@ -21,6 +23,10 @@ function App() {
   function createStudent(){
     window.location.href="/create-student"
   }
+
+  function registerUser(){
+    window.location.href="/register-user"
+  }
   return (
     <div className="App">
     <Router>
@@ -28,7 +34,7 @@ function App() {
         <Navbar bg="dark" variant="dark">
           <Container>
             <Navbar.Brand>
-              <Link to={'/create-student'} className="nav-link" >
+              <Link to={'/student-list'} className="nav-link" >
                 React MERN Stack App
               </Link>
             </Navbar.Brand>
@@ -38,6 +44,13 @@ function App() {
                   Create Student
                 </Link>
               </Nav>
+
+              <Nav>
+                <Link to={'/register-user'} className="nav-link" onClick={registerUser}>
+                  Create User
+                </Link>
+              </Nav>
+
               <Nav>
                 <Link to={'/student-list'} className="nav-link" onClick={NavHome}>
                   Student List
@@ -55,12 +68,22 @@ function App() {
                 <Route
                   exact
                   path="/"
-                  component={(props) => <CreateStudent {...props} />}
+                  component={(props) => <StudentList {...props} />}
                 />
                 <Route
                   exact
                   path="/create-student"
                   component={(props) => <CreateStudent {...props} />}
+                />
+                 <Route
+                  exact
+                  path="/register-user"
+                  component={(props) => <RegisterUser {...props} />}
+                />
+                  <Route
+                  exact
+                  path="/login-user"
+                  component={(props) => <LoginUser {...props} />}
                 />
                 <Route
                   exact
